@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<codegen-classes-dir>src/generated/java</codegen-classes-dir>
 	</properties>
 
 	<dependencies>
@@ -23,6 +24,16 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
 			<version>2.23.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-core</artifactId>
+			<version>1.5.21</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.1</version>
 		</dependency>
 
 		<dependency>
@@ -37,6 +48,61 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${codegen-classes-dir}</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-codegen-maven-plugin</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					<execution>
+						<id>generate-application-api</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/github-repo-details.swagger.yaml</inputSpec>
+							<language>jaxrs-spec</language>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<configOptions>
+								<sourceFolder>${codegen-classes-dir}</sourceFolder>
+								<java8>true</java8>
+								<interfaceOnly>true</interfaceOnly>
+							</configOptions>
+							<output>.</output>
+							<apiPackage>io.pm.github.api</apiPackage>
+							<modelPackage>io.pm.github.model</modelPackage>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-github-api</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/github.com.v3.swagger.yaml</inputSpec>
+							<language>jaxrs-spec</language>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<configOptions>
+								<sourceFolder>${codegen-classes-dir}</sourceFolder>
+								<java8>true</java8>
+								<interfaceOnly>true</interfaceOnly>
+							</configOptions>
+							<output>.</output>
+							<apiPackage>io.github.api</apiPackage>
+							<modelPackage>io.github.model</modelPackage>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

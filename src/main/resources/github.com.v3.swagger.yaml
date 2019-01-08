@@ -1358,7 +1358,6 @@ paths:
           type: boolean
         - description: |
             The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-            Example: "2012-10-09T23:39:01Z".
           in: query
           name: since
           type: string
@@ -3094,7 +3093,6 @@ paths:
           type: string
         - description: |
             The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-            Example: "2012-10-09T23:39:01Z".
           in: query
           name: since
           type: string
@@ -5213,7 +5211,6 @@ paths:
           type: string
         - description: |
             The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-            Example: "2012-10-09T23:39:01Z".
           in: query
           name: since
           type: string
@@ -6873,7 +6870,6 @@ paths:
           type: boolean
         - description: |
             The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-            Example: "2012-10-09T23:39:01Z".
           in: query
           name: since
           type: string
@@ -7095,7 +7091,6 @@ paths:
           type: string
         - description: |
             The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-            Example: "2012-10-09T23:39:01Z".
           in: query
           name: since
           type: string
@@ -8945,7 +8940,6 @@ paths:
       parameters:
         - description: |
             The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-            Example: "2012-10-09T23:39:01Z".
           in: query
           name: since
           type: string
@@ -11222,7 +11216,6 @@ paths:
           type: string
         - description: |
             The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-            Example: "2012-10-09T23:39:01Z".
           in: query
           name: since
           type: string
@@ -14371,7 +14364,7 @@ definitions:
       description:
         type: string
       gitignore_template:
-        description: 'Desired language or platform .gitignore template to apply. Use the name of the template without the extension. For example, "Haskell" Ignored if auto_init parameter is not provided. '
+        description: 'Desired language or platform .gitignore template to apply. Use the name of the template without the extension.'
         type: string
       has_downloads:
         description: 'True to enable downloads for this repository, false to disable them. Default is true.'

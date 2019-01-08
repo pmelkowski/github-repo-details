@@ -1,10 +1,13 @@
 swagger: '2.0'
+info:
+  version: 0.0.1
+  title: github repository service
 produces:
   - application/json
 paths:
   '/repositories/{owner}/{repository-name}':
     get:
-      description: Get repository.
+      description: Get repository info.
       parameters:
         - description: Name of repository owner.
           in: path
@@ -20,13 +23,13 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/repo'
+            $ref: '#/definitions/repositoryInfo'
         '403':
           description: |
             API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting
             for details.
 definitions:
-  repo:
+  repositoryInfo:
     properties:
       fullName:
         type: string
