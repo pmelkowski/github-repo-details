@@ -12874,8 +12874,6 @@ definitions:
         type: string
       '+1':
         type: string
-      '-1':
-        type: string
       8ball:
         type: string
       a:
@@ -13458,7 +13456,8 @@ definitions:
         type: string
     type: object
   gitignore:
-    items: {}
+    items:
+      type: object
     type: array
   gitignore-lang:
     properties:
@@ -13530,6 +13529,7 @@ definitions:
           type: string
         events:
           items:
+            type: string
             enum:
               - push
               - issues
@@ -16936,10 +16936,12 @@ definitions:
       type: string
     type: array
   user-emails_final:
-    items: {}
+    items:
+      type: object
     type: array
   user-keys:
-    items: {}
+    items:
+      type: object
     type: array
   user-keys-keyId:
     properties:
@@ -17020,7 +17022,8 @@ definitions:
         type: string
     type: object
   user-userId-starred:
-    items: {}
+    items:
+      type: object
     type: array
   user-userId-subscribitions:
     items:
@@ -17110,8 +17113,10 @@ definitions:
       type: object
     type: array
   users-userId-keys:
-    items: {}
+    items:
+      type: object
     type: array
   users-userId-orgs:
-    items: {}
+    items:
+      type: object
     type: array
